@@ -1,0 +1,37 @@
+
+<div class="container" *ngIf="playlist!=undefined" >
+    <h1>{{playlist.list_name}}</h1>
+    <div class="cards" *ngIf="products!=undefined">
+        <div class="card" *ngFor="let product of products;index as i;">
+            <button  class="btn btn-danger" (click)="deleteFromPlaylist(i)"><mat-icon>delete</mat-icon></button>
+            <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+              <img class="w-100" [src]="product.pic"/>
+              <a href="#!">
+                <div class="hover-overlay">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.15)"
+                  ></div>
+                </div>
+              </a>
+            </div>
+            <div class="card-body">
+              <a
+                class="text-reset"
+              >
+                <h5 class="card-title mb-3" >
+                  {{ product.name }}
+                </h5>
+              </a>
+              <h6 href="" class="text-reset">
+                Description : {{ product.description}}
+              </h6>
+              <h6>
+                Price :{{ product.price|number:'1.3' }} TND
+              </h6>
+              
+            </div>
+            <a class="btn btn-dark" (click)="checkProduct(product)">Check Product</a>
+          </div>
+    </div>
+</div>

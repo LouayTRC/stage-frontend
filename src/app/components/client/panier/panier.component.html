@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">image</th>
+            <th scope="col">Name</th>
+            <th scope="col">description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Qte</th>
+            <th scope="col">actions</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="products!=undefined">
+        <tr *ngFor="let p of products;index as i;">
+            <td><img [src]="p.pic" alt=""></td>
+            <td>{{p.name}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p.price}}</td>
+            <td><input type="number" [(ngModel)]="p.qte"  (keyup)="updateQte(p)"></td>
+            <td><button (click)="deleteFromChart(i)">delete</button></td>
+        </tr>
+    </tbody>
+    <input type="number" disabled [value]="total">
+    <button class="btn btn-dark" (click)="validerCommande()">valider commande </button>
+</table>

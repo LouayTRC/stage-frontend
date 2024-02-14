@@ -1,0 +1,16 @@
+.produit {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 200px;
+  }
+*{
+  text-decoration: none;
+}
+.card-title{
+  text-align: center;
+}
+img{
+  width: 100px;
+  height: 300px;
+}

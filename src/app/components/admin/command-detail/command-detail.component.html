@@ -1,0 +1,17 @@
+
+<div class="container" *ngIf="command!=undefined">
+    <table>
+        <thead>
+            <th>id Product</th>
+            <th>qte</th>
+            <th>price</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pc of command.Products">
+                <td>{{pc._id}}</td>
+                <td>{{pc.qte}}</td>
+                <td>{{pc.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

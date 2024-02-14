@@ -1,0 +1,45 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Product :</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closePopup()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" *ngIf="categories!=undefined">
+                <form>
+                    <label for="name" class="form-label">Name :</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="data.product.name" ><br>
+        
+                    <label for="qte" class="form-label">Quantity :</label>
+                    <input type="number" class="form-control" id="qte" name="qte" [(ngModel)]="data.product.qte" ><br>
+        
+                    <label for="description" class="form-label">Description :</label>
+                    <input type="text" class="form-control" id="description" name="description" [(ngModel)]="data.product.description" ><br>
+        
+                    <label for="category" class="form-label">Category :</label>
+                    <select id="category" class="form-select" type="text" name="category" [(ngModel)]="category._id" >
+                        <option *ngFor="let c of categories" [selected]="c._id==data.product.category._id" [value]="c._id">{{c.name}}</option>
+                    </select><br>
+                    <label for="price" class="form-label">Price :</label>
+                    <input type="number" class="form-control" id="price" name="price" [(ngModel)]="data.product.price" ><br>
+                    
+                    <div class="mb-3">
+                        <label for="Pic" class="form-label">Pic :</label>
+                        <input type="file" (change)="onFileChange($event)" class="form-control" id="Pic" name="pic" formControlName="pic">
+                    </div>
+                    
+                    <label for="status"  class="form-label">Status</label>
+                    <select id="status" class="form-select" type="number" name="status" [(ngModel)]="data.product.status">
+                        <option value=-1>en arrivage</option>
+                        <option value=0>hors stock</option>
+                        <option selected value=1>en stock</option>
+                    </select>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closePopup()" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"  (click)="updateProduct(data.product)">Update Product</button>
+            </div>
+        </div>
+    </div>
+</div>

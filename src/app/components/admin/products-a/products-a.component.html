@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-xs-6">
+            <h2>Manage <b>Products</b></h2>
+          </div>
+
+
+          <input type="text" placeholder="search product" (keydown)="filter($event)" [value]="textSerach"
+            [(ngModel)]="textSerach" />
+
+          <div class="categories">
+            <button class="cat btn btn-success " (click)="filter2(c)" *ngFor="let c of categories">{{c.name}}</button>
+            <input type="text" class="addC form-control" placeholder="Add Category" #newCateg>
+            <button class="btn" (click)="addCategory(newCateg.value)"><i class="material-icons">&#xE147;</i></button>
+          </div>
+        </div>
+      </div>
+      <div style="margin: auto;">
+        <a class="btn btn-success" data-toggle="modal" (click)="openAddPopup()"><i class="material-icons">&#xE147;</i>
+          <span>Add New Product</span></a>
+      </div>
+
+
+      <table class="table table-striped table-hover" *ngIf="products!=undefined">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th>quantity</th>
+            <th>price</th>
+            <th>category</th>
+            <th>description</th>
+            <th>status</th>
+            <th>actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products">
+            <td><img [src]="p.pic" alt=""></td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.qte }}</td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.category.name }}</td>
+            <td>{{ p.description }}</td>
+            <td [ngSwitch]="p.status"><span *ngSwitchCase="0">hors stock</span><span *ngSwitchCase="1">en
+                stock</span><span *ngSwitchCase="-1">en arrivage</span></td>
+            <td id="actions"><button (click)="openUpdatePopup(p)"><mat-icon>settings</mat-icon></button><button
+                (click)="deleteProduct(p)"><mat-icon>delete</mat-icon></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

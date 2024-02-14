@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="first">
+        <div class="one">
+            <h2>Products</h2>
+            <table class="table" *ngIf="products!=undefined">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of products">
+                        <th scope="row">{{p.name}}</th>
+                        <td>{{p.qte}}</td>
+                        <td>{{p.price}}</td>
+                        <td [ngSwitch]="p.status"><span *ngSwitchCase="0">hors stock</span><span *ngSwitchCase="1">en stock</span><span *ngSwitchCase="-1">en arrivage</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="one">
+            <h2>Commands</h2>
+            <table class="table right" *ngIf="commands!=undefined">
+                <thead>
+                    <tr>
+                        <th scope="col">Client</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let c of commands;index as i;">
+                        <tr *ngIf="i<3">
+                            <th scope="row">{{c.Client.user.fullname}}</th>
+                            <td>{{c.date_cmmd |date:'dd/MM/YYYY'}}</td>
+                            <td>{{c.total}}</td>
+                            <td [ngSwitch]="c.status"><span *ngSwitchCase="0">Waiting</span><span *ngSwitchCase="1">Accepted</span><span *ngSwitchCase="-1">Refused</span></td>
+                        </tr>
+                    </ng-container>
+                    
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="second">
+        <div class="one">
+            <h2>Clients</h2>
+            <table class="table" *ngIf="clients!=undefined">
+                <thead>
+                    <tr>
+                        <th scope="col">PDP</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Fullname</th>
+                        <th scope="col">Birthday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of clients">
+                        <th scope="row"><img [src]="c.user.pdp" alt=""></th>
+                        <td>{{c.user.username}}</td>
+                        <td>{{c.user.fullname}}</td>
+                        <td>{{c.user.birthday | date:'dd/MM/YYYY'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="one">
+            <h2>Admins</h2>
+            <table class="table right" *ngIf="admins!=undefined">
+                <thead>
+                    <tr>
+                        <th scope="col">PDP</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Fullname</th>
+                        <th scope="col">Birthday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let a of admins">
+                        <th scope="row"><img [src]="a.user.pdp" alt=""></th>
+                        <td>{{a.user.username}}</td>
+                        <td>{{a.user.fullname}}</td>
+                        <td>{{a.user.birthday | date:'dd/MM/YYYY'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>

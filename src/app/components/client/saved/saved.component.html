@@ -1,0 +1,19 @@
+<div class="container">
+    <form action="">
+        <input type="text" style="width: 200px;" class="form-control" placeholder="playlist Name" #name>
+        <button class="btn btn-danger" (click)="createPlaylist(name.value)">create playlist</button>
+    </form>
+    <h1>Playlists</h1>
+    <div class="cards">
+        <div class="card" style="width: 18rem;" *ngFor="let p of playlists">
+            <img [src]="p.pic" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{p.list_name}}</h5>
+              <p class="card-text">this list containes {{p.products.length}} Products</p>
+              <a href="/client/saved/{{p._id}}" class="btn btn-danger">Check list products</a>
+              <button  class="d btn btn-dark" (click)="deletePlaylist(p._id)"><mat-icon>delete</mat-icon></button>
+            </div>
+        </div>
+    </div>
+    
+</div>

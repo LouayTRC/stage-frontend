@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+    margin-bottom: 3%;
+}
+.container{
+    margin-top: 10%;
+}
+.card{
+    width: 300px;
+    height: 100px;
+    margin: auto;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Commands</h1>
+<table class="table" *ngIf="commands!=undefined">
+    <thead>
+        <th>client</th>
+        <th>client's phone</th>
+        <th>admin</th>
+        <th>products</th>
+        <th>date </th>
+        <th>price </th>
+        <th>status </th>
+        <th>actions </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of commands">
+            <td>{{c.Client.user.username}}</td>
+            <td>{{c.Client.phone}}</td>
+            <td><span *ngIf="c.Admin">{{c.Admin.user.username}}</span><span *ngIf="!c.Admin">waiting</span></td>
+            <td><a routerLink="/dashboard/commands/{{c._id}}">check Products</a></td>
+            <td>{{c.date_cmmd | date:'dd/MM/YYYY'}}</td>
+            <td>{{c.total}}</td>
+            <td [ngSwitch]="c.status"><span *ngSwitchCase="0">Waiting for admin</span><span
+                *ngSwitchCase="1">Confirmed</span><span *ngSwitchCase="-1">Refused</span></td>
+            <td><button (click)="acceptCommand(c)"><mat-icon>check_circle</mat-icon></button><button (click)="refuseCommand(c)"><mat-icon>cancel</mat-icon></button></td>
+        </tr>
+    </tbody>
+</table>
+</div>

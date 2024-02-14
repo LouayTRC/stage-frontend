@@ -1,0 +1,16 @@
+.Produits {
+    list-style: none;
+    column-gap: 20px;
+  }
+  img {
+    height: 250px;
+    width: 200px;
+  }
+  .line-1 {
+    height: 1px;
+    background: black;
+    margin: 2%;
+  }
+  
+  
+  

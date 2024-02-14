@@ -1,0 +1,71 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Product :</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closePopup()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" *ngIf="categories!=undefined">
+                <form [formGroup]="productForm">
+    
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name :</label>
+                        <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                    </div>
+                    <div *ngIf="Name.invalid && Name.touched" class="alert alert-danger">
+                        Name est Obligatoire
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="qte" class="form-label">Quantity :</label>
+                        <input type="number" class="form-control" id="qte" name="qte" formControlName="qte">
+                    </div>
+                    <div *ngIf="Qte.invalid && Qte.touched" class="alert alert-danger">
+                        quantité est Obligatoire
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Pic" class="form-label">Pic :</label>
+                        <input type="file" (change)="onFileChange($event)" class="form-control" id="Pic" name="pic" formControlName="pic">
+                    </div>
+                    
+    
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description :</label>
+                        <input type="text" class="form-control" id="description" name="description"
+                            formControlName="description">
+                    </div>
+                    <div *ngIf="Description.invalid && Description.touched" class="alert alert-danger">
+                        Description est Obligatoire
+                    </div>
+    
+                    <label for="category">Category :</label>
+                    <select class="form-select" id="category" type="text" name="category" formControlName="category">
+                        <option *ngFor="let c of categories;" [value]="c._id">{{c.name}}</option>
+                    </select><br>
+    
+    
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price :</label>
+                        <input type="number" class="form-control" id="price" name="price" formControlName="price">
+                    </div>
+                    <div *ngIf="Price.invalid && Price.touched" class="alert alert-danger">
+                        Prix est Obligatoire
+                    </div>
+                    
+                    <label for="status">Availability</label>
+                    <select  class="form-select" id="status" type="number" name="status" formControlName="status">
+                        <option value=-1>en arrivage</option>
+                        <option value=0>hors stock</option>
+                        <option selected value=1>en stock</option>
+                    </select>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closePopup()" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" [disabled]="productForm.invalid" (click)="addProduct()">Add Product</button>
+            </div>
+        </div>
+    </div>
+</div>

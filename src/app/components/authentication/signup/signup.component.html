@@ -1,0 +1,81 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Signup</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"  aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="signupUser">
+    
+                    <div class="mb-3">
+                        <label for="fullname" class="form-label">Fullname :</label>
+                        <input type="text" class="form-control" placeholder="Fullname" name="fullname" formControlName="fullname">
+                    </div>
+                    <div *ngIf="Fullname.invalid && Fullname.touched" class="alert alert-danger">
+                        Fullname est Obligatoire
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username :</label>
+                        <input type="text"class="form-control" placeholder="Username" name="username" formControlName="username">
+                    </div>
+                    <div *ngIf="Username.invalid && Username.touched" class="alert alert-danger">
+                        Username est Obligatoire
+                    </div>                    
+
+                    <div class="mb-3">
+                        <label for="mail" class="form-label">mail :</label>
+                        <input type="text" class="form-control" placeholder="mail" name="mail" formControlName="mail">
+                    </div>
+                    <div *ngIf="Mail.invalid && Mail.touched" class="alert alert-danger">
+                        Mail est Obligatoire
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password :</label>
+                        <input type="password" class="form-control"  placeholder="password" name="password" formControlName="password">
+                    </div>
+                    <div *ngIf="Password.invalid && Password.touched" class="alert alert-danger">
+                        Password est Obligatoire
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="Pic" class="form-label">Pic :</label>
+                        <input type="file" (change)="onFileChange($event)" class="form-control" id="Pic" name="pic" formControlName="pic">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="birthday" class="form-label">Birthday :</label>
+                        <input type="date"  class="form-control" id="birthday" name="birthday" formControlName="birthday">
+                    </div>
+                    <div *ngIf="Birthday.invalid && Birthday.touched" class="alert alert-danger">
+                        Birthday est Obligatoire
+                    </div>
+    
+    
+                    <div class="mb-3"> 
+                        <label for="adress" class="form-label">Adress :</label>
+                        <input type="text" class="form-control"  placeholder="adress" id="adress" name="adress" formControlName="adress">
+                    </div>
+                    <div *ngIf="Adress.invalid && Adress.touched" class="alert alert-danger">
+                        Adress est Obligatoire
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone :</label>
+                        <input type="text" class="form-control" id="phone" placeholder="phone" name="phone" formControlName="phone">
+                    </div>
+                    <div *ngIf="Phone.invalid && Phone.touched" class="alert alert-danger">
+                        Phone est Obligatoire
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closePopup()" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" [disabled]="signupUser.invalid"  (click)="signup()">Signup</button>
+            </div>
+        </div>
+    </div>
+</div>

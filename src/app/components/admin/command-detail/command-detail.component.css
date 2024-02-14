@@ -1,0 +1,6 @@
+.container{
+    margin-top: 500px;
+}
+table,th,td,tr{
+    border: 2px solid black;
+}

@@ -1,0 +1,19 @@
+.container{
+    margin-top: 10%;
+}
+.first{
+    display: flex;
+}
+.second{
+    display: flex;
+}
+.right{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.one{
+    width: 50%;
+}
+h2{
+    text-align: center;
+}

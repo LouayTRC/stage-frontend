@@ -1,0 +1,20 @@
+.container{
+    margin-top: 10%;
+}
+h1{
+    text-align: center;
+}
+form{
+    display: flex;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    margin: auto;
+    margin-bottom: 2%;
+} 
+.d{
+    margin-left: 10%;
+}
