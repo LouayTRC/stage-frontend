@@ -1,13 +1,9 @@
-.container{
-    margin-top: 200px;
-}
 table,thead,tbody,tr,th,td{
     border: 2px solid black;
 }
 
 .card {
     overflow: visible;
-    width: 190px;
     height: 254px;
   }
   

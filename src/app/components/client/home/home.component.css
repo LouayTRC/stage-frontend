@@ -11,6 +11,12 @@
     background: black;
     margin: 2%;
   }
-  
+
+h1{
+  text-align: center;
+}
+.d-block{
+  height: 700px;
+}
   
   

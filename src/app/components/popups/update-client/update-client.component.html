@@ -1,0 +1,33 @@
+<div class="modal-dialog modal-xl" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Change Informations</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closePopup()"  aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="passwordForm" >
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Old password :</label>
+                        <input type="password" class="form-control"  placeholder="password" name="password" formControlName="old">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">New password :</label>
+                        <input type="password" class="form-control"  placeholder="password" name="password" formControlName="new">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">New password :</label>
+                        <input type="password" class="form-control"  placeholder="password" name="password" formControlName="new1">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closePopup()" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" [disabled]=""  (click)="changePassword()">Change Password</button>
+            </div>
+        </div>
+    </div>
+</div>

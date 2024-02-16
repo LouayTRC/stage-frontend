@@ -1,4 +1,4 @@
-<div id="demo" class="carousel slide" data-bs-ride="carousel">
+<!-- <div id="demo" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
   
   
@@ -24,5 +24,57 @@
     </div>
   </div>
    <br> <br>
+ -->
 
-  
+<div class="row">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" *ngIf="products">
+      <div class="carousel-item active" *ngFor="let p of products">
+        <img [src]="p.pic" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h1>Our products</h1>
+  </div>
+</div>
+<div class="row flex-wrap">
+  <div class="col-3" *ngFor="let p of products">
+    <app-product-card [product]="p"></app-product-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col"></div>
+  <h4 class="col-6 "> World Of Gamers :LES SPÉCIALISTES DU GAMING EN TUNISIE</h4>
+  <div class="col"></div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="justify-content-center">
+      <p class="text-center">
+        WorldOfGamers.tn est le site de référence tunisien pour la sélection de vos équipements esport et gaming ; nous offrons une
+        expérience unique à tous les amateurs d’esports et à la scène mondiale en nous concentrant sur la composante
+        compétitive du jeu et les performances du joueur. Notre siège social et nos bureaux locaux sont à Tunis (l’Aouina),
+        et nous avons plus de 2000 références de produits en stock et prêts à être expédiés dans les 48 heures! Pour assurer
+        un service de qualité, nous fournissons la logistique et le service à la clientèle directement ou par
+        l’intermédiaire d’une société de livraison rapide, ARAMEX. Nous travaillons directement avec de grandes marques
+        telles que Gigabyte, Aorus, MSI, Asus, Corsair, Logitech, Genesis, HyperX, Cooler Master, AOC et autres. Et notre
+        personnel est toujours à la recherche de nouvelles marques à la pointe de l’industrie de l’esport, telles que
+        Whiteshark, Xtrfy, E-shark, Abkoncore, MARS, Glorious... Sur Megapc.tn tu trouveras tous les meilleurs périphériques
+        esport et gaming : Carte Graphique, Processeur Haut de Gamme, Boitier Gaming, souris gamer, clavier gamer,
+        Micro-casque gamer, tapis de souris RGB, manette Gaming pour Pc ou PS5.</p>
+    </div> 
+    
+  </div>
+</div>
+

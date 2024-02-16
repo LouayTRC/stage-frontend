@@ -17,7 +17,7 @@ export class ProductsAComponent {
   products!: Product[];
   headers!: HttpHeaders;
   categories!: Category[];
-  textSerach: string = ""
+  textSearch: string = ""
   products2!: Product[]
   selectedcategory!: any
   constructor(private cservice: CategoryService, private pservice: ProductService, private dialogRef: MatDialog) { }
@@ -84,8 +84,8 @@ export class ProductsAComponent {
       this.products = this.products.filter(element => element.category._id == this.selectedcategory._id);
     }
 
-    if (this.textSerach.trim() !== "") {
-      this.products = this.products.filter(element => element.name.includes(this.textSerach));
+    if (this.textSearch.trim() !== "") {
+      this.products = this.products.filter(element => element.name.includes(this.textSearch));
     }
   }
 
@@ -94,15 +94,15 @@ export class ProductsAComponent {
 
     if (this.selectedcategory == c) {
       this.selectedcategory = undefined
-      if (this.textSerach.trim() !== "") {
-        this.products = this.products.filter(element => element.name.includes(this.textSerach));
+      if (this.textSearch.trim() !== "") {
+        this.products = this.products.filter(element => element.name.includes(this.textSearch));
       }
 
     }
     else {
       this.products = this.products.filter(element => element.category._id == c._id);
-      if (this.textSerach.trim() !== "") {
-        this.products = this.products.filter(element => element.name.includes(this.textSerach));
+      if (this.textSearch.trim() !== "") {
+        this.products = this.products.filter(element => element.name.includes(this.textSearch));
       }
       this.selectedcategory = c;
     }
@@ -115,6 +115,7 @@ export class ProductsAComponent {
         console.log("res",res);
         
         this.categories.push(res)
+        this.textSearch=""
       })
     }
   }

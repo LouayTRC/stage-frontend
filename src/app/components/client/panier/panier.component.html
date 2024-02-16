@@ -1,24 +1,63 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">image</th>
-            <th scope="col">Name</th>
-            <th scope="col">description</th>
-            <th scope="col">Price</th>
-            <th scope="col">Qte</th>
-            <th scope="col">actions</th>
-        </tr>
-    </thead>
-    <tbody *ngIf="products!=undefined">
-        <tr *ngFor="let p of products;index as i;">
-            <td><img [src]="p.pic" alt=""></td>
-            <td>{{p.name}}</td>
-            <td>{{p.description}}</td>
-            <td>{{p.price}}</td>
-            <td><input type="number" [(ngModel)]="p.qte"  (keyup)="updateQte(p)"></td>
-            <td><button (click)="deleteFromChart(i)">delete</button></td>
-        </tr>
-    </tbody>
-    <input type="number" disabled [value]="total">
-    <button class="btn btn-dark" (click)="validerCommande()">valider commande </button>
-</table>
+<section class="h-100" style="background-color: #eee;">
+  <div class="container h-100 py-5" >
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-10">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+        </div>
+        <div class="prods" *ngIf="products!=undefined" >
+            <div class="card rounded-3 mb-4" *ngFor="let p of products;index as i;">
+                <div class="card-body p-4">
+                  <div class="row d-flex justify-content-between align-items-center">
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <img
+                        [src]="p.pic"
+                        class="img-fluid rounded-3" alt="Cotton T-shirt">
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      <p class="lead fw-normal mb-2">{{p.name}}</p>
+                      <p><span class="text-muted">Description: </span>{{p.description}}</p>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                      <button class="btn btn-link px-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                        <i class="fas fa-minus"></i>
+                      </button>
+      
+                      <input id="form1" min="0" name="quantity" type="number" [(ngModel)]="p.qte"  (keyup)="updateQte(p)"
+                        class="form-control form-control-sm" />
+      
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                      <h5 class="mb-0">{{p.price|number:'2.3'}} TND</h5>
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                        <button class="btn btn-danger" (click)="deleteFromChart(i)"><mat-icon>delete</mat-icon></button>
+                    </div>
+                  </div>
+                </div>
+              </div>      
+      
+              <div class="card mb-4">
+                <div class="card-body p-4 d-flex flex-row">
+                  <div class="form-outline flex-fill">
+                    <p>Payment will be in cash !</p>
+                    <p>We will deliver Free !</p>
+                    <p>Total Price : <input type="number" disabled [value]="total"></p>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="card">
+                <div class="card-body">
+                  <button type="button" class="btn btn-warning btn-block btn-lg" (click)="validerCommande()">Order Now !</button>
+                </div>
+              </div>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>

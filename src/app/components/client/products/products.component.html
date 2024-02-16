@@ -1,12 +1,30 @@
-<div class="container">
+<!-- <div class="container">
   
-    <h1>Products <i class="fa-solid fa-fire"></i></h1>
+    
     
     <div class="row row-cols-1 row-cols-md-4 g-4">
-      <div *ngFor="let p of products;" >
-        <app-product-card  [product]="p"></app-product-card>
-      </div>
+      
     </div>
     <br>
     
   </div>
+     -->
+
+<div class="container-fluid">
+  <div class="row align-items-spacebetween">
+    <div class="col-3">
+      <h1 class="text-center">Products</h1>
+    </div>
+    <div class="col-6">
+      
+    </div>
+    <div class="col-3">
+      <input type="text" class="form-control" placeholder="search" (keydown)="filter($event)" [value]="textSearch" [(ngModel)]="textSearch" >
+    </div>
+  </div>
+  <div class="row flex-wrap">
+      <div class="col-3" *ngFor="let p of products;">
+          <app-product-card  [product]="p"></app-product-card>
+      </div>
+  </div>
+</div>

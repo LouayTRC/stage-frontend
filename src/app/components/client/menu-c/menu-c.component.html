@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light p-3 fixed-top">
+<!-- <nav class="navbar navbar-expand-lg navbar-light p-3 fixed-top">
     <div class="container-fluid">
-        <img src="../../../../assets/logo.jpg" style="height: 50px; width:50px;margin-right: 1%;" alt="logo site">
+        
         <a class="navbar-brand" href="#" style="font-weight:700;color: white;">World Of Gamers</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,44 +8,16 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link mx-2" routerLink="/client/home">Home</a>
-
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-2" routerLink="/client/products">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-2" routerLink="/client/commands">Commands</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-2" routerLink="/client/saved">Saved</a>
-                </li>
-                
-
-                <li class="nav-item">
-
-                </li>
-
-
-
-
-            </ul>
+            
             <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
 
 
                 <li class="nav-item mx-2">
-                    <a class="nav-link text-dark h5" routerLink="/client/panier"><mat-icon>shopping_cart</mat-icon></a>
+                    
                 </li>
 
                 <div class="notConnected" *ngIf="user==undefined">
-                    <li>
-                        <button class="btn btn-danger" (click)="openLoginPopup()">Login</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-primary" (click)="openSignupPopup()">Signup</button>
-                    </li>
+                    
                 </div>
 
                 <div class="connected" *ngIf="user!=undefined">
@@ -57,4 +29,72 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->
+<div class="container-fluid bg-danger">
+    <div class="row container">
+        <div class="col-4">
+            <h4>Choisissez les spécialistes !</h4>
+        </div>
+        <div class="col-4">Appelez-nous : 27445695 !!</div>
+
+        <div class="col">
+            <a href="facebook.com"><img src="assets/fb.jpg" alt=""></a>
+        </div>
+        <div class="col">
+            <a href="instagram.com"><img src="assets/instagram.jpg" alt=""></a>
+        </div>
+        <div class="col">
+            <a href="linkedin.com"><img src="assets/linkedin.png" alt=""></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-4">
+            <a routerLink="/client/home"><img src="assets/logo.jpg" alt="">Wold Of Gamers</a>
+        </div>
+        <div class="col">
+            <a class="nav-link mx-2" routerLink="/client/home">Home</a>
+        </div>
+        <div class="col">
+            <a class="nav-link mx-2" routerLink="/client/products">Products</a>
+        </div>
+        <div class="col">
+            <a class="nav-link mx-2" routerLink="/client/commands">Commands</a>
+        </div>
+        <div class="col">
+            <a class="nav-link mx-2" routerLink="/client/saved">Saved</a>
+        </div>
+        <div class="col">
+            <a class="nav-link text-dark h5" routerLink="/client/panier"><mat-icon>shopping_cart</mat-icon></a>
+        </div>
+        <div class="col-2" *ngIf="!user">
+            <button class="btn btn-dark" (click)="openLoginPopup()">Login</button>
+            <button class="btn btn-primary" (click)="openSignupPopup()">Signup</button>
+        </div>
+        <div class="col" *ngIf="user">
+            <div class="dropdown">
+                <button class="profile " type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img [src]="client.user.pdp" alt="">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <div class="card-container" *ngIf="client">
+                        <img class="round" [src]="client.user.pdp" alt="user" />
+                        <h3>{{client.user.fullname}}</h3>
+                        <h6>{{client.phone}}</h6>
+                        <p>
+                            {{client.user.mail}}
+                        </p>
+                        <div class="buttons">
+                            <button class="primary" (click)="openUpdateClientPopup()">
+                                Change password
+                            </button>
+                            <button class="primary ghost" (click)="logout()">
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

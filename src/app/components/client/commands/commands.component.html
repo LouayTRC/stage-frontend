@@ -1,7 +1,12 @@
 <div class="container" >
-    <h1 style="text-align: center;">My Commands</h1>
-    <div class="cards">
-        <div class="card" *ngFor="let c of commands">
+    <div class="row">
+        <div class="col">
+            <h1 style="text-align: center;">My Commands</h1>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row flex-wrap">
+        <div class="card col-3" *ngFor="let c of commands">
             <div class="content">
                 <div class="back">
                     <div class="back-content">

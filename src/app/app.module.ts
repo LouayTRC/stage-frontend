@@ -31,6 +31,9 @@ import { ErrorComponent } from './components/error/error.component';
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'
 import { environment } from 'environement';
+import { FooterComponent } from './components/client/footer/footer.component';
+import { UpdateClientComponent } from './components/popups/update-client/update-client.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +58,9 @@ import { environment } from 'environement';
     CommandDetailComponent,
     SaveProductComponent,
     SavedProductsComponent,
-    ErrorComponent
+    ErrorComponent,
+    FooterComponent,
+    UpdateClientComponent
   ],
   imports: [
     BrowserModule,

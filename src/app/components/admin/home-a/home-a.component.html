@@ -12,12 +12,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let p of products">
-                        <th scope="row">{{p.name}}</th>
-                        <td>{{p.qte}}</td>
-                        <td>{{p.price}}</td>
-                        <td [ngSwitch]="p.status"><span *ngSwitchCase="0">hors stock</span><span *ngSwitchCase="1">en stock</span><span *ngSwitchCase="-1">en arrivage</span></td>
-                    </tr>
+                    <ng-container *ngFor="let p of products;index as i;">
+                        <tr *ngIf="i<5">
+                            <th scope="row">{{p.name}}</th>
+                            <td>{{p.qte}}</td>
+                            <td>{{p.price}}</td>
+                            <td [ngSwitch]="p.status"><span *ngSwitchCase="0">hors stock</span><span *ngSwitchCase="1">en stock</span><span *ngSwitchCase="-1">en arrivage</span></td>
+                        </tr>
+                    </ng-container>
+                    
                 </tbody>
             </table>
         </div>

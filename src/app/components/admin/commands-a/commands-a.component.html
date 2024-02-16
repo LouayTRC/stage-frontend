@@ -18,7 +18,7 @@
             <td><span *ngIf="c.Admin">{{c.Admin.user.username}}</span><span *ngIf="!c.Admin">waiting</span></td>
             <td><a routerLink="/dashboard/commands/{{c._id}}">check Products</a></td>
             <td>{{c.date_cmmd | date:'dd/MM/YYYY'}}</td>
-            <td>{{c.total}}</td>
+            <td>{{c.total|number:'2.3'}} TND</td>
             <td [ngSwitch]="c.status"><span *ngSwitchCase="0">Waiting for admin</span><span
                 *ngSwitchCase="1">Confirmed</span><span *ngSwitchCase="-1">Refused</span></td>
             <td><button (click)="acceptCommand(c)"><mat-icon>check_circle</mat-icon></button><button (click)="refuseCommand(c)"><mat-icon>cancel</mat-icon></button></td>

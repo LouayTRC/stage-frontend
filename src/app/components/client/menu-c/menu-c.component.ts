@@ -6,6 +6,9 @@ import { SignupComponent } from '../../authentication/signup/signup.component';
 import { Client } from 'src/app/models/client';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
+import { UpdateClientComponent } from '../../popups/update-client/update-client.component';
+import { ClientService } from 'src/app/services/client.service';
+import { HttpHeaders } from '@angular/common/http';
 
 
 
@@ -16,13 +19,28 @@ import { UserService } from 'src/app/services/user.service';
   
 })
 export class MenuCComponent {
-  
+  client!:any
   user:any
-  constructor(private matDialog:MatDialog,private authService:AuthenticationService,private userService:UserService){}
+  headers!: HttpHeaders;  
+  constructor(private matDialog:MatDialog,private userService:UserService,private cservice:ClientService,private authService:AuthenticationService){}
   
   ngOnInit(){
+
+    const token=sessionStorage.getItem('Token')
+    this.headers=new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    
     this.userService.user.subscribe((user)=>{
       this.user=user
+      this.cservice.getClient(this.headers).subscribe((res)=>{
+        this.client=res;
+        console.log("client",this.client);
+        
+      })
+      
+
     })
   }
 
@@ -37,5 +55,12 @@ export class MenuCComponent {
   logout(){
     this.authService.logout()
     this.userService.setUser(undefined)
+    this.client=undefined
+  }
+  openUpdateClientPopup(){
+    this.matDialog.closeAll()
+    this.matDialog.open(UpdateClientComponent,{
+      data:{client:this.client}
+    })
   }
 }

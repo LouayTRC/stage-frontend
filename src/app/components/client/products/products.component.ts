@@ -12,6 +12,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductsComponent {
   products!:Product[];
+  products2!:Product[];
+  textSearch: string = ""
   categories!:Category[];
   constructor(private pservice:ProductService,private cservice:CategoryService){}
 
@@ -22,6 +24,14 @@ export class ProductsComponent {
 
     this.pservice.getAllProducts().subscribe((res)=>{
       this.products=res;
+      this.products2=structuredClone(this.products)
     })
+  }
+  filter(event: any) {
+    this.products = this.products2;
+    if (this.textSearch.trim() !== "") {
+      this.products = this.products.filter(element => element.name.includes(this.textSearch));
+    }
+    
   }
 }
