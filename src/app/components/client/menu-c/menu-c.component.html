@@ -30,45 +30,41 @@
         </div>
     </div>
 </nav> -->
-<div class="container-fluid bg-danger">
-    <div class="row container">
-        <div class="col-4">
-            <h4>Choisissez les spécialistes !</h4>
-        </div>
-        <div class="col-4">Appelez-nous : 27445695 !!</div>
-
-        <div class="col">
-            <a href="facebook.com"><img src="assets/fb.jpg" alt=""></a>
-        </div>
-        <div class="col">
-            <a href="instagram.com"><img src="assets/instagram.jpg" alt=""></a>
-        </div>
-        <div class="col">
-            <a href="linkedin.com"><img src="assets/linkedin.png" alt=""></a>
-        </div>
-    </div>
+<div class="container-fluid bg-danger main-header" style="margin-bottom: 100px;">
+    
     <div class="row justify-content-center align-items-center">
         <div class="col-4">
-            <a routerLink="/client/home"><img src="assets/logo.jpg" alt="">Wold Of Gamers</a>
+            <img src="assets/logo.jpg" alt="" style="border-radius:50%;margin-left:20px;">
+            <a style="margin-left:15px;text-decoration: none;" routerLink="/client/home">
+                Wold Of Gamers
+            </a>
         </div>
         <div class="col">
-            <a class="nav-link mx-2" routerLink="/client/home">Home</a>
+            <a class="nav-link mx-2" routerLink="/client/home">
+                <h5>Home</h5>
+            </a>
         </div>
         <div class="col">
-            <a class="nav-link mx-2" routerLink="/client/products">Products</a>
+            <a class="nav-link mx-2" routerLink="/client/products">
+                <h5>Products</h5>
+            </a>
         </div>
         <div class="col">
-            <a class="nav-link mx-2" routerLink="/client/commands">Commands</a>
+            <a class="nav-link mx-2" routerLink="/client/commands">
+                <h5>Commands</h5>
+            </a>
         </div>
         <div class="col">
-            <a class="nav-link mx-2" routerLink="/client/saved">Saved</a>
+            <a class="nav-link mx-2" routerLink="/client/saved">
+                <h4>Saved</h4>
+            </a>
         </div>
         <div class="col">
             <a class="nav-link text-dark h5" routerLink="/client/panier"><mat-icon>shopping_cart</mat-icon></a>
         </div>
         <div class="col-2" *ngIf="!user">
             <button class="btn btn-dark" (click)="openLoginPopup()">Login</button>
-            <button class="btn btn-primary" (click)="openSignupPopup()">Signup</button>
+            <button class="btn btn-primary" (click)="openSignupPopup()" style="margin-left:10px;">Signup</button>
         </div>
         <div class="col" *ngIf="user">
             <div class="dropdown">
@@ -78,14 +74,14 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <div class="card-container" *ngIf="client">
-                        <img class="round" [src]="client.user.pdp" alt="user" />
+                        <img class="round" [src]="client.user.pdp" alt="user"/>
                         <h3>{{client.user.fullname}}</h3>
                         <h6>{{client.phone}}</h6>
                         <p>
                             {{client.user.mail}}
                         </p>
                         <div class="buttons">
-                            <button class="primary" (click)="openUpdateClientPopup()">
+                            <button class="primary" style="margin-right:10px;" (click)="openUpdateClientPopup()">
                                 Change password
                             </button>
                             <button class="primary ghost" (click)="logout()">
@@ -95,6 +91,19 @@
                     </div>
                 </ul>
             </div>
+        </div>
+    </div>
+
+
+    <div class=" header-container">
+        <div class="col-4">
+            <h4>Choisissez les spécialistes !</h4>
+        </div>
+        <div class="col-4">Appelez-nous : 27445695 !!</div>
+        <div class="social-links">
+            <a href="facebook.com"><img src="assets/fb.jpg" alt=""></a>
+            <a href="instagram.com"><img src="assets/instagram.jpg" alt=""></a>
+            <a href="linkedin.com"><img src="assets/linkedin.png" alt=""></a>
         </div>
     </div>
 </div>
