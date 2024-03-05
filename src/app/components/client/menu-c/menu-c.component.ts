@@ -26,20 +26,21 @@ export class MenuCComponent {
   
   ngOnInit(){
 
-    const token=sessionStorage.getItem('Token')
+    this.userService.user.subscribe((user)=>{
+      this.user=user
+      console.log({user})
+      if(user){
+        const token=sessionStorage.getItem('Token')
+      
     this.headers=new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    
-    this.userService.user.subscribe((user)=>{
-      this.user=user
       this.cservice.getClient(this.headers).subscribe((res)=>{
         this.client=res;
-        console.log("client",this.client);
-        
+          
       })
-      
+    }
 
     })
   }
@@ -53,9 +54,9 @@ export class MenuCComponent {
     this.matDialog.open(SignupComponent)
   }
   logout(){
+    this.client=undefined
     this.authService.logout()
     this.userService.setUser(undefined)
-    this.client=undefined
   }
   openUpdateClientPopup(){
     this.matDialog.closeAll()

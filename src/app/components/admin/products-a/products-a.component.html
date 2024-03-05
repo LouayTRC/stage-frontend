@@ -8,7 +8,7 @@
           </div>
 
 
-          <input type="text" placeholder="search product" (keydown)="filter($event)" [value]="textSearch" [(ngModel)]="textSearch" />
+          <input type="text" placeholder="search product" (keyup)="filter($event)" [value]="textSearch" [(ngModel)]="textSearch" />
 
           <div class="categories">
             <button class="cat btn btn-success " (click)="filter2(c)" *ngFor="let c of categories">{{c.name}}</button>

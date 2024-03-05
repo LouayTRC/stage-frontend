@@ -17,10 +17,6 @@ export class UserService {
   getAllClients():Observable<Client[]>{
     return this.bostagi.get<Client[]>(this.baseUrl)
   }
-
-  getConnectedClient(headers?: HttpHeaders):Observable<Client>{
-    return this.bostagi.get<Client>(this.baseUrl,{ headers: headers })
-  }
   
   setUser(client:any){
     this.user.next(client)

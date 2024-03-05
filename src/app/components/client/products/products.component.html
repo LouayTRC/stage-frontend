@@ -19,7 +19,7 @@
       
     </div>
     <div class="col-3">
-      <input type="text" class="form-control" placeholder="search" (keydown)="filter($event)" [value]="textSearch" [(ngModel)]="textSearch" >
+      <input type="text" class="form-control" placeholder="search" (keyup)="filter($event)" [value]="textSearch" [(ngModel)]="textSearch" >
     </div>
   </div>
   <div class="row flex-wrap">

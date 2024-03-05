@@ -71,6 +71,9 @@ export class PanierComponent {
   deleteFromChart(index:number){
     this.panier=JSON.parse(sessionStorage.getItem("panier") || "[]");
     this.panier.splice(index,1);
+    if (this.panier.length==0) {
+      this.total=0
+    }
     sessionStorage.setItem("panier",JSON.stringify(this.panier));
     this.products.splice(index,1)
   }

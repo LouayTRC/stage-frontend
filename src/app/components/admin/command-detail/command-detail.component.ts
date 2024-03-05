@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Command } from 'src/app/models/command';
 import { CommandService } from 'src/app/services/command.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-command-detail',
@@ -13,7 +14,7 @@ export class CommandDetailComponent {
   command!:Command
   headers!: HttpHeaders;
 
-  constructor(private cservice:CommandService,private active:ActivatedRoute){}
+  constructor(private pservice:ProductService,private cservice:CommandService,private active:ActivatedRoute){}
 
   ngOnInit(){
     const token=sessionStorage.getItem('Token')
